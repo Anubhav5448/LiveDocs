@@ -6,14 +6,16 @@ import { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./Provider";
 
+export const metadata: Metadata = {
+  title: "LiveDocs",
+  description: "A Collaborative documentation platform",
+};
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
-export const metadata: Metadata = {
-  title: "LiveDocs",
-  description: "Your go-to collaborative editor",
-};
+
 export default function RootLayout({
   children,
 }: {
@@ -23,13 +25,17 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         baseTheme: dark,
-        variables: { colorPrimary: "#3371ff", fontSize: "16px" },
+        variables: {
+          colorPrimary: "#3371FF",
+          fontSize: "16px",
+        },
       }}
     >
       <html lang="en" suppressHydrationWarning>
+        <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen font-sans antialiased",
             fontSans.variable
           )}
         >
