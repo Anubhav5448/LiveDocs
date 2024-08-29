@@ -28,6 +28,7 @@ declare type SearchParamProps = {
     avatar: string;
     color: string;
     userType?: UserType;
+    // emailAddresses: { emailAddress: string }[];
   };
   
   declare type ShareDocumentParams = {
