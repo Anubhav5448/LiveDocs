@@ -1,7 +1,8 @@
 import AddDocumentBtn from '@/components/AddDocumentBtn';
-// import { DeleteModal } from '@/components/DeleteModal';
+import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header'
-// import Notifications from '@/components/Notifications';
+// import { Notifications } from '@/components/Notifications';
+
 import { Button } from '@/components/ui/button'
 import { getDocuments } from '@/lib/actions/room.actions';
 import { dateConverter } from '@/lib/utils';
@@ -32,7 +33,7 @@ const Home = async () => {
         <div className="document-list-container">
           <div className="document-list-title">
             <h3 className="text-28-semibold">All documents</h3>
-            <AddDocumentBtn 
+            <AddDocumentBtn
               userId={clerkUser.id}
               email={clerkUser.emailAddresses[0].emailAddress}
             />
@@ -42,7 +43,7 @@ const Home = async () => {
               <li key={id} className="document-list-item">
                 <Link href={`/documents/${id}`} className="flex flex-1 items-center gap-4">
                   <div className="hidden rounded-md bg-dark-500 p-2 sm:block">
-                    <Image 
+                    <Image
                       src="/assets/icons/doc.svg"
                       alt="file"
                       width={40}
@@ -54,14 +55,14 @@ const Home = async () => {
                     <p className="text-sm font-light text-blue-100">Created about {dateConverter(createdAt)}</p>
                   </div>
                 </Link>
-                {/* <DeleteModal roomId={id} /> */}
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>
         </div>
       ): (
         <div className="document-list-empty">
-          <Image 
+          <Image
             src="/assets/icons/doc.svg"
             alt="Document"
             width={40}
@@ -69,7 +70,7 @@ const Home = async () => {
             className="mx-auto"
           />
 
-          <AddDocumentBtn 
+          <AddDocumentBtn
             userId={clerkUser.id}
             email={clerkUser.emailAddresses[0].emailAddress}
           />
